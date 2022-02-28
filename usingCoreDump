@@ -1,0 +1,13 @@
+To Use Core Dumps:
+
+# Set the user limit for core dumps to unlimited (and check the result)
+ulimit -c unlimited
+ulimit -c
+
+# Change location of coredump files to the directory itself
+sudo sysctl -w kernel.core_pattern=core
+
+# Compile with -Wall -g and Run gdb with the core file
+g++ -Wall -g mine.cpp philosopher.cpp
+gdb binary path_of_corefile
+backtrace
