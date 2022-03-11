@@ -1,0 +1,13 @@
+#===============================================================================
+# Enable full functionality for the SysReq key
+#===============================================================================
+cat /proc/sys/kernel/sysrq
+	# the ouput should be 176 (or other positive value)
+sudo echo "kernel.sysrq=1" >> /etc/sysctl.d/99-sysctl.conf
+sudo echo "kernel.sysrq=1" >> /etc/sysctl.d/10-magic-sysrq.conf
+reboot
+cat /proc/sys/kernel/sysrq
+	# the ouput should be 1
+
+Press and hold Alt, then press Fn+S (your SysRq key), and release both. 
+While still holding Alt, try pressing Alt F2 to launch a command or press the REISUB sequence to reboot the system.
